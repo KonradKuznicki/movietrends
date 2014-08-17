@@ -1,4 +1,4 @@
-import urllib.request, string, re
+import urllib.request, re
 
 def getTrs(data):
   results = data.index('searchResult')
@@ -11,7 +11,7 @@ def getTitle(tr):
   return re.findall('detLink.*?>(.*?)</a>', tr)[0]
 
 def filterWhiteSpace(name):
-  return re.sub(r'[\W_]+', ' ',name).strip()
+  return re.sub(r'[\W_]+', ' ', name).strip()
 
 def getTitleAndYear(tr):
   name = getTitle(tr)
@@ -42,18 +42,20 @@ def getTorrents(site, category):
 def transposeMatrix(matrix):
   return list(map(list, zip(*matrix)))
 
-movies = getTorrents('http://pirateproxy.in/browse/', '207')
+if __name__ is '__main__':
 
-titles = transposeMatrix(movies)[0]
+  movies = getTorrents('http://pirateproxy.in/browse/', '207')
 
-years = transposeMatrix(movies)[1]
+  titles = transposeMatrix(movies)[0]
 
-print(len(titles))
+  years = transposeMatrix(movies)[1]
 
-uniqTitles = set(titles)
+  print(len(titles))
 
-# print(uniqTitles)
+  uniqTitles = set(titles)
 
-print(len(uniqTitles))
+  # print(uniqTitles)
 
-print(sorted(set(years)))
+  print(len(uniqTitles))
+
+  print(sorted(set(years)))
