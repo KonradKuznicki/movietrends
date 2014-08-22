@@ -1,12 +1,13 @@
-import os
+''' module for simple file operations '''
 
 def slurp(fName):
-    f = os.open(fName, 'r')
-    c = f.read('utf-8')
-    f.close()
+    ''' read entire file to memory '''
+    with open(fName, 'r') as f:
+        c = f.read()
     return c
 
+
 def spit(fName, content):
-    f = os.open(fName, 'w')
-    f.write(content)
-    f.close()
+    ''' put string to file name '''
+    with open(fName, 'w') as f:
+        f.write(content)
