@@ -1,5 +1,6 @@
 import downloader
-import os
+import f
+import json
 
 fromCache = False
 dataFile = ''
@@ -10,8 +11,14 @@ def getData():
     else:
         getDataFromFile(dataFile)
 
+
 def getDataFromFile():
-    os.
+    return json.loads(f.slurp(dataFile))
+
+
+def putDataToFile():
+    return f.spit(dataFile, json.dumps(downloader.getData()))
+
 
 def cache():
     pass

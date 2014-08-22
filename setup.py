@@ -8,9 +8,9 @@ config = {
     'author': 'Konrad Kuznicki',
     'url': 'https://github.com/konradk2/movietrends',
     'download_url': 'https://github.com/konradk2/movietrends',
-    'author_email': 'konrad@kuznicki.me'
+    'author_email': 'konrad@kuznicki.me',
     'version': '0.1',
-    'install_requires': ['pytest'],
+    'install_requires': ['pytest', 'rope_py3k', 'pyflakes'],
     'packages': ['movietrends'],
     'scripts': [],
     'name': 'movietrends'
