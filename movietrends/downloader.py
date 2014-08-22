@@ -1,7 +1,20 @@
-import urllib.reques
+''' loads pirate resources from net '''
+import urllib.request
 
-def getSite ():
+
+def loadHTML():
+    # urllib.request.urlopen
     pass
 
-def getData():
+
+def getPage (url):
+    ''' download url and return string parsed as utf-8 '''
+
+    with urllib.request.urlopen(url) as u:
+        data = u.read().decode('utf-8')
+    return data
+
+
+
+def getAllPages():
     pass
