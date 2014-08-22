@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+import movietrends.pirateripper
+
+movies = pirateripper.getTorrents('http://pirateproxy.in/browse/', '207')
+
+titles = pirateripper.transposeMatrix(movies)[0]
+
+years = pirateripper.transposeMatrix(movies)[1]
+
+print(len(titles))
+
+uniqTitles = set(titles)
+
+# print(uniqTitles)
+
+print(len(uniqTitles))
+
+print(sorted(set(years)))

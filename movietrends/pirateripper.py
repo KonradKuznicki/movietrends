@@ -40,21 +40,3 @@ def getTorrents(site, category):
 
 def transposeMatrix(matrix):
     return list(map(list, zip(*matrix)))
-
-if __name__ is '__main__':
-
-    movies = getTorrents('http://pirateproxy.in/browse/', '207')
-
-    titles = transposeMatrix(movies)[0]
-
-    years = transposeMatrix(movies)[1]
-
-    print(len(titles))
-
-    uniqTitles = set(titles)
-
-    # print(uniqTitles)
-
-    print(len(uniqTitles))
-
-    print(sorted(set(years)))
