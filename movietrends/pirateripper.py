@@ -1,4 +1,6 @@
-import urllib.request, re
+import urllib.request
+import re
+
 
 def getTrs(data):
     results = data.index('searchResult')
@@ -10,8 +12,10 @@ def getTrs(data):
 def getTitle(tr):
     return re.findall('detLink.*?>(.*?)</a>', tr)[0]
 
+
 def filterWhiteSpace(name):
     return re.sub(r'[\W_]+', ' ', name).strip()
+
 
 def getTitleAndYear(tr):
     name = getTitle(tr)
@@ -22,13 +26,11 @@ def getTitleAndYear(tr):
         return [filterWhiteSpace(name), '']
 
 
-
 def getFromPage(page):
     f = urllib.request.urlopen(page)
     data = f.read().decode('utf-8')
     trs = getTrs(data).split('</tr>\n	<tr>')
     return [getTitleAndYear(tr) for tr in trs]
-
 
 
 def getTorrents(site, category):

@@ -1,5 +1,6 @@
 ''' module for simple file operations '''
 
+
 def slurp(fName):
     ''' read entire file to memory '''
     with open(fName, 'r') as f:

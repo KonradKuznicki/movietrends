@@ -2,12 +2,7 @@
 import urllib.request
 
 
-def loadHTML():
-    # urllib.request.urlopen
-    pass
-
-
-def getPage (url):
+def getPage(url):
     ''' download url and return string parsed as utf-8 '''
 
     with urllib.request.urlopen(url) as u:
@@ -15,6 +10,8 @@ def getPage (url):
     return data
 
 
+def getAllPages(url, start, end):
+    return [getPage('{}/{}/3/'.format(url, i)) for i in range(start, end)]
 
-def getAllPages():
-    pass
+
+url = 'http://pirateproxy.in/browse/207'
